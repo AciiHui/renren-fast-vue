@@ -133,7 +133,7 @@
           method: 'get',
           params: this.$http.adornParams()
         }).then(({data}) => {
-          this.menuList = treeDataTranslate(data.menuList, 'menuId')
+          this.menuList = treeDataTranslate(data.menu, 'menuId')
         }).then(() => {
           this.visible = true
           this.$nextTick(() => {
@@ -195,7 +195,7 @@
                 'icon': this.dataForm.icon
               })
             }).then(({data}) => {
-              if (data && data.code === 0) {
+              if (data && data.code === 2001) {
                 this.$message({
                   message: '操作成功',
                   type: 'success',

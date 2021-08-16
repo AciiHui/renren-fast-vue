@@ -2,7 +2,7 @@
   <nav class="site-navbar" :class="'site-navbar--' + navbarLayoutType">
     <div class="site-navbar__header">
       <h1 class="site-navbar__brand" @click="$router.push({ name: 'home' })">
-        <a class="site-navbar__brand-lg" href="javascript:;">人人快速开发平台</a>
+        <a class="site-navbar__brand-lg" href="javascript:;">后台管理平台</a>
         <a class="site-navbar__brand-mini" href="javascript:;">人人</a>
       </h1>
     </div>
@@ -97,11 +97,11 @@
           type: 'warning'
         }).then(() => {
           this.$http({
-            url: this.$http.adornUrl('/sys/logout'),
+            url: this.$http.adornUrl('/logout'),
             method: 'post',
             data: this.$http.adornData()
           }).then(({data}) => {
-            if (data && data.code === 0) {
+            if (data && data.code === 2001) {
               clearLoginInfo()
               this.$router.push({ name: 'login' })
             }
